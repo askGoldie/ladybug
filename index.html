@@ -34,191 +34,275 @@
             margin: 25px 0;
             text-align: center;
         }
+
+        .password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .password-form {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .password-input {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            margin: 10px;
+            width: 200px;
+        }
+
+        .password-button {
+            padding: 12px 24px;
+            background: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+            .password-button:hover {
+                background: #0052a3;
+            }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <div class="message-container">
-        <div class="message-body">
-            <p>Hi Jennifer,</p>
-
-            <p>Thank you for our conversation yesterday. I was inspired by your grit and willingness to bet on yourself. As someone who has been trying to operate the same way, I think I have a lot to learn from you and that's inspiring to me.</p>
-
-            <p>In terms of helping you define your business development and sales strategy, I think I have something to offer. To give you a sense of how I think about these problems, here is the quadrant framework I was talking about. Based on what you shared about Ladybug's work, it seems like you're often in the Unique Intangible space - where prospects need to be educated about problems they may not fully understand yet. This is different from selling systems that people already know they need, which explains why traditional BD approaches haven't been consistently effective.</p>
-
-            <div class="framework-section">
-                <svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Background -->
-                    <rect width="800" height="600" fill="#ffffff" />
-
-                    <!-- Grid lines -->
-                    <line x1="400" y1="50" x2="400" y2="550" stroke="#5a5a5a" stroke-width="2" />
-                    <line x1="50" y1="300" x2="750" y2="300" stroke="#5a5a5a" stroke-width="2" />
-
-                    <!-- Axis labels -->
-                    <text x="400" y="30" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="600" fill="#4a4a4a">Commodity ← → Unique</text>
-                    <text x="25" y="150" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="600" fill="#4a4a4a" transform="rotate(-90, 25, 150)">Intangible</text>
-                    <text x="25" y="450" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="600" fill="#4a4a4a" transform="rotate(-90, 25, 450)">Tangible</text>
-
-                    <!-- Corner labels -->
-                    <text x="100" y="70" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="500" fill="#6b7280">COMMODITY</text>
-                    <text x="650" y="70" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="500" fill="#6b7280">UNIQUE</text>
-
-                    <!-- Quadrant backgrounds -->
-                    <rect x="50" y="50" width="350" height="250" fill="#e6f1f9" fill-opacity="0.8" stroke="none" />
-                    <rect x="400" y="50" width="350" height="250" fill="#f5f2ff" fill-opacity="0.8" stroke="none" />
-                    <rect x="50" y="300" width="350" height="250" fill="#fff7e8" fill-opacity="0.8" stroke="none" />
-                    <rect x="400" y="300" width="350" height="250" fill="#fefce8" fill-opacity="0.8" stroke="none" />
-
-                    <!-- Quadrant 1: Intangible Commodity -->
-                    <text x="225" y="90" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#4a7fa7">Intangible Commodity</text>
-                    <text x="225" y="115" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="500" fill="#6b9bc2">Feature/Price Comparison</text>
-                    <text x="225" y="140" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Example: Standard CRMs, booking systems</text>
-                    <text x="225" y="160" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Known necessary systems</text>
-                    <text x="225" y="175" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Feature matching</text>
-                    <text x="225" y="190" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Price competition</text>
-                    <text x="225" y="210" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600" fill="#4a7fa7">Sales Cycle: Medium</text>
-                    <text x="225" y="235" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="700" fill="#c97064">Operational Cost</text>
-                    <text x="225" y="255" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">Required operational expense</text>
-
-                    <!-- Quadrant 2: Intangible Unique -->
-                    <text x="575" y="90" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#7c5fa0">Intangible Unique</text>
-                    <text x="575" y="115" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="500" fill="#967bb6">Education-Driven Sales</text>
-                    <text x="575" y="140" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Example: Innovative SaaS, custom solutions</text>
-                    <text x="575" y="160" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Understanding problems</text>
-                    <text x="575" y="175" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Analyzing data in space</text>
-                    <text x="575" y="190" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Education = lead generation</text>
-                    <text x="575" y="210" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600" fill="#7c5fa0">Sales Cycle: Long</text>
-                    <text x="575" y="235" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="700" fill="#7c5fa0">Strategic Cost</text>
-                    <text x="575" y="255" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">Embodies organization vision</text>
-
-                    <!-- Quadrant 3: Tangible Commodity -->
-                    <text x="225" y="340" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#d4963a">Tangible Commodity</text>
-                    <text x="225" y="365" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="500" fill="#e6b566">Relationship-Driven Sales</text>
-                    <text x="225" y="390" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Example: Selling tires to car factory</text>
-                    <text x="225" y="410" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Available everywhere</text>
-                    <text x="225" y="425" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Sales relationship drives deal</text>
-                    <text x="225" y="440" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Building trust & rapport</text>
-                    <text x="225" y="460" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600" fill="#d4963a">Sales Cycle: Incumbent Provider</text>
-                    <text x="225" y="485" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="700" fill="#c97064">Operational Cost</text>
-                    <text x="225" y="505" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">Known cost of doing business</text>
-
-                    <!-- Quadrant 4: Tangible Unique -->
-                    <text x="575" y="340" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#b8a632">Tangible Unique</text>
-                    <text x="575" y="365" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="500" fill="#cac14d">Demonstration-Driven Sales</text>
-                    <text x="575" y="390" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Example: Instant Pot, hoverboards</text>
-                    <text x="575" y="410" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Revolutionary products</text>
-                    <text x="575" y="425" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Must experience to understand</text>
-                    <text x="575" y="440" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Create new product categories</text>
-                    <text x="575" y="460" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600" fill="#b8a632">Sales Cycle: Short</text>
-                    <text x="575" y="485" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="700" fill="#b8a632">Strategic Cost</text>
-                    <text x="575" y="505" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">Aligns with strategy/goals</text>
-
-                    <!-- Title -->
-                    <text x="400" y="580" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="700" fill="#4a4a4a">Sales Strategy Framework: Understanding Different Selling Styles</text>
-                </svg>
-            </div>
-
-            <p>As I proposed, my goal would be to set up 3 one-on-one meetings where we can collaboratively write a document that defines your strategy. Holding multiple meetings gives us time to reflect and think about what surfaces - which has been important in my prior experiences like this. I'll be honest and say I'm not sure how this is going to go, but I do know that I'm not going to shoehorn you into a "5 Whys" or some other magic framework. If there was a magic structure that fit your business, you would have found it already.</p>
-
-            <p>Instead, the goal is to develop custom frameworks that fit your specific situation, team, and goals. You'll have a systematic approach that survives team changes and scales with your growth - whether we decide to work together long term or not.</p>
-
-            <p>What really impressed me is that you seem to have a strong team with wide-ranging skills and an ability to get things done. The way you described how they've adapted to different projects really stood out to me. I can tell you that in talking with Trond, he seems very happy with his work with you. Trond doesn't do anything casually, so his opinion matters.</p>
-
-            <p>To give you a sense of how I think about these processes, here are some examples from Quoala's sales strategy documents. These are specific elements tied to that business and we would need to create entirely new models and mechanisms for Ladybug. I'm sharing these so you can see how specific and systematic these frameworks get.</p>
-
-            <div style="background: #f8f9fa; padding: 20px; margin: 20px 0; border-left: 4px solid #0066cc;">
-                <h3 style="color: #0066cc; margin-top: 0;">Example: Prospecting Trees Structure</h3>
-                <p><em>(This was built specifically for Quoala's employee engagement product - we'd create something entirely different for Ladybug)</em></p>
-                <p><strong>The structure of sales vertical targeting and customer account growth within Quoala. Each prospecting tree consists of One Level 1 "Strategic" target supported by 3 Level 3 "Expansion" targets, and 5 Level 5 "Foothold" targets. This structure applies to industry verticals, use cases, and customer account growth.</strong></p>
-
-                <p>With no exception, sales personnel own all leads included in an assigned prospecting tree.</p>
-
-                <p>As a visual example, the coffee roasting vertical could have Starbucks as the Strategic Level 1 Target with key Expansion targets Pete's, Caribou, and The Coffee Bean. A Foothold in the coffee vertical would start with smaller Level 5 targets like Cafe Vita, Woods, Stumptown, Chocolati, and Intelligentsia Coffee.</p>
-
-                <svg width="520" height="200" xmlns="http://www.w3.org/2000/svg" style="margin: 15px auto; display: block;">
-                    <!-- Strategic Level -->
-                    <rect x="220" y="10" width="100" height="30" fill="#e6f1f9" stroke="#0066cc" stroke-width="1" />
-                    <text x="270" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Starbucks</text>
-
-                    <!-- Expansion Level -->
-                    <rect x="95" y="70" width="80" height="25" fill="#f5f5f5" stroke="#666" stroke-width="1" />
-                    <text x="135" y="87" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">Pete's Coffee</text>
-
-                    <rect x="230" y="70" width="80" height="25" fill="#f5f5f5" stroke="#666" stroke-width="1" />
-                    <text x="270" y="87" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">Caribou</text>
-
-                    <rect x="365" y="70" width="80" height="25" fill="#f5f5f5" stroke="#666" stroke-width="1" />
-                    <text x="405" y="87" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">Coffee Bean</text>
-
-                    <!-- Foothold Level -->
-                    <rect x="45" y="130" width="70" height="20" fill="#fff" stroke="#999" stroke-width="1" />
-                    <text x="80" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">Cafe Vita</text>
-
-                    <rect x="135" y="130" width="70" height="20" fill="#fff" stroke="#999" stroke-width="1" />
-                    <text x="170" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">Woods</text>
-
-                    <rect x="225" y="130" width="70" height="20" fill="#fff" stroke="#999" stroke-width="1" />
-                    <text x="260" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">Stumptown</text>
-
-                    <rect x="315" y="130" width="70" height="20" fill="#fff" stroke="#999" stroke-width="1" />
-                    <text x="350" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">Chocolati</text>
-
-                    <rect x="405" y="130" width="90" height="20" fill="#fff" stroke="#999" stroke-width="1" />
-                    <text x="450" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">Intelligentsia</text>
-
-                    <!-- Connection lines -->
-                    <line x1="270" y1="40" x2="135" y2="70" stroke="#ccc" stroke-width="1" />
-                    <line x1="270" y1="40" x2="270" y2="70" stroke="#ccc" stroke-width="1" />
-                    <line x1="270" y1="40" x2="405" y2="70" stroke="#ccc" stroke-width="1" />
-
-                    <line x1="135" y1="95" x2="80" y2="130" stroke="#eee" stroke-width="1" />
-                    <line x1="135" y1="95" x2="170" y2="130" stroke="#eee" stroke-width="1" />
-                    <line x1="270" y1="95" x2="260" y2="130" stroke="#eee" stroke-width="1" />
-                    <line x1="405" y1="95" x2="350" y2="130" stroke="#eee" stroke-width="1" />
-                    <line x1="405" y1="95" x2="450" y2="130" stroke="#eee" stroke-width="1" />
-
-                    <!-- Labels -->
-                    <text x="5" y="30" font-family="Arial, sans-serif" font-size="10" fill="#666">Strategic</text>
-                    <text x="5" y="87" font-family="Arial, sans-serif" font-size="10" fill="#666">Expansion</text>
-                    <text x="5" y="143" font-family="Arial, sans-serif" font-size="10" fill="#666">Foothold</text>
-                </svg>
-
-                <p>Within a customer organization, prospecting trees represent account growth potential. In all cases, the strategic objective is "Company-Wide" adoption. Expansion and Foothold achievement will be measured and evaluated by individual sales teams.</p>
-            </div>
-
-            <div style="background: #f0f8f0; padding: 20px; margin: 20px 0; border-left: 4px solid #388e3c;">
-                <h3 style="color: #388e3c; margin-top: 0;">Example: Strategic Sales Motions</h3>
-                <p><em>(How this organization defined strategic sales motions in line with prospecting trees)</em></p>
-
-                <p><strong>Directed Prospecting</strong> - actions taken to identify target sales that will assist in larger sales in the future. These actions include:</p>
-                <ul>
-                    <li>Identifying strategic company purchase strategy</li>
-                    <li>Identifying optimal referral customers (People potential customers will listen to)</li>
-                    <li>Identifying complementary or rival customers (Companies that other companies will follow)</li>
-                </ul>
-
-                <p><strong>Referred Evaluation</strong> - actions taken to trigger a customer evaluation from an existing customer or negotiating customer. This includes referral evaluation from customer industry contacts and additional evaluation executed within large existing customers.</p>
-                <p><em>Note: "A purchase oriented referral meeting is the gold standard for sales performance at Quoala."</em></p>
-
-                <p><strong>Prospect Tree Revenue Growth</strong> - actions taken to increase the overall financial value of a specified prospect tree. In ideal circumstances, Foothold sales that trigger Expansion sales and eventually Strategic sales.</p>
-
-                <p><strong>Referenceable Accounts</strong> - actions taken to publicly showcase successful customer launches, using reference customers to help demonstrate value to potential new customers.</p>
-
-                <p>What's important here is that these aren't generic sales activities - they're specifically designed to work within the prospecting tree framework. Each motion reinforces the others and builds systematic momentum.</p>
-            </div>
-
-            <p>My goal is to work with you long term. It seems like you have a great team and I love how you describe your business. Obviously, we don't know each other well yet, so I agree that we should take this slowly. I would be willing to hold these meetings at the following rates:</p>
-
-            <ul>
-                <li><strong>First meeting:</strong> Complimentary</li>
-                <li><strong>Second meeting:</strong> $100/hour</li>
-                <li><strong>Third meeting:</strong> $100/hour</li>
-            </ul>
-
-            <p>Let me know your thoughts.</p>
-
-            <p>Best,<br>Jeff</p>
+    <div id="passwordOverlay" class="password-overlay">
+        <div class="password-form">
+            <h2>Enter Access Code</h2>
+            <p>This document is for Jennifer at Ladybug Workshop</p>
+            <input type="password" id="passwordInput" class="password-input" placeholder="Access code">
+            <br>
+            <button onclick="checkPassword()" class="password-button">Access Document</button>
+            <p id="errorMessage" style="color: red; display: none;">Incorrect access code</p>
         </div>
     </div>
+
+    <div id="mainContent" class="hidden">
+        <div class="message-container">
+            <div class="message-body">
+                <p>Hi Jennifer,</p>
+
+                <p>Thank you for our conversation yesterday. I was inspired by your grit and willingness to bet on yourself. As someone who has been trying to operate the same way, I think I have a lot to learn from you and that's inspiring to me.</p>
+
+                <p>In terms of helping you define your business development and sales strategy, I think I have something to offer. To give you a sense of how I think about these problems, here is the quadrant framework I was talking about. Based on what you shared about Ladybug's work, it seems like you're often in the Unique Intangible space - where prospects need to be educated about problems they may not fully understand yet. This is different from selling systems that people already know they need, which explains why traditional BD approaches haven't been consistently effective.</p>
+
+                <div class="framework-section">
+                    <svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Background -->
+                        <rect width="800" height="600" fill="#ffffff" />
+
+                        <!-- Grid lines -->
+                        <line x1="400" y1="50" x2="400" y2="550" stroke="#5a5a5a" stroke-width="2" />
+                        <line x1="50" y1="300" x2="750" y2="300" stroke="#5a5a5a" stroke-width="2" />
+
+                        <!-- Axis labels -->
+                        <text x="400" y="30" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="600" fill="#4a4a4a">Commodity ← → Unique</text>
+                        <text x="25" y="150" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="600" fill="#4a4a4a" transform="rotate(-90, 25, 150)">Intangible</text>
+                        <text x="25" y="450" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="600" fill="#4a4a4a" transform="rotate(-90, 25, 450)">Tangible</text>
+
+                        <!-- Corner labels -->
+                        <text x="100" y="70" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="500" fill="#6b7280">COMMODITY</text>
+                        <text x="650" y="70" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="500" fill="#6b7280">UNIQUE</text>
+
+                        <!-- Quadrant backgrounds -->
+                        <rect x="50" y="50" width="350" height="250" fill="#e6f1f9" fill-opacity="0.8" stroke="none" />
+                        <rect x="400" y="50" width="350" height="250" fill="#f5f2ff" fill-opacity="0.8" stroke="none" />
+                        <rect x="50" y="300" width="350" height="250" fill="#fff7e8" fill-opacity="0.8" stroke="none" />
+                        <rect x="400" y="300" width="350" height="250" fill="#fefce8" fill-opacity="0.8" stroke="none" />
+
+                        <!-- Quadrant 1: Intangible Commodity -->
+                        <text x="225" y="90" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#4a7fa7">Intangible Commodity</text>
+                        <text x="225" y="115" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="500" fill="#6b9bc2">Feature/Price Comparison</text>
+                        <text x="225" y="140" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Example: Standard CRMs, booking systems</text>
+                        <text x="225" y="160" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Known necessary systems</text>
+                        <text x="225" y="175" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Feature matching</text>
+                        <text x="225" y="190" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Price competition</text>
+                        <text x="225" y="210" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600" fill="#4a7fa7">Sales Cycle: Medium</text>
+                        <text x="225" y="235" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="700" fill="#c97064">Operational Cost</text>
+                        <text x="225" y="255" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">Required operational expense</text>
+
+                        <!-- Quadrant 2: Intangible Unique -->
+                        <text x="575" y="90" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#7c5fa0">Intangible Unique</text>
+                        <text x="575" y="115" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="500" fill="#967bb6">Education-Driven Sales</text>
+                        <text x="575" y="140" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Example: Innovative SaaS, custom solutions</text>
+                        <text x="575" y="160" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Understanding problems</text>
+                        <text x="575" y="175" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Analyzing data in space</text>
+                        <text x="575" y="190" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Education = lead generation</text>
+                        <text x="575" y="210" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600" fill="#7c5fa0">Sales Cycle: Long</text>
+                        <text x="575" y="235" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="700" fill="#7c5fa0">Strategic Cost</text>
+                        <text x="575" y="255" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">Embodies organization vision</text>
+
+                        <!-- Quadrant 3: Tangible Commodity -->
+                        <text x="225" y="340" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#d4963a">Tangible Commodity</text>
+                        <text x="225" y="365" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="500" fill="#e6b566">Relationship-Driven Sales</text>
+                        <text x="225" y="390" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Example: Selling tires to car factory</text>
+                        <text x="225" y="410" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Available everywhere</text>
+                        <text x="225" y="425" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Sales relationship drives deal</text>
+                        <text x="225" y="440" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Building trust & rapport</text>
+                        <text x="225" y="460" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600" fill="#d4963a">Sales Cycle: Incumbent Provider</text>
+                        <text x="225" y="485" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="700" fill="#c97064">Operational Cost</text>
+                        <text x="225" y="505" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">Known cost of doing business</text>
+
+                        <!-- Quadrant 4: Tangible Unique -->
+                        <text x="575" y="340" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#b8a632">Tangible Unique</text>
+                        <text x="575" y="365" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="500" fill="#cac14d">Demonstration-Driven Sales</text>
+                        <text x="575" y="390" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Example: Instant Pot, hoverboards</text>
+                        <text x="575" y="410" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Revolutionary products</text>
+                        <text x="575" y="425" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Must experience to understand</text>
+                        <text x="575" y="440" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">• Create new product categories</text>
+                        <text x="575" y="460" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600" fill="#b8a632">Sales Cycle: Short</text>
+                        <text x="575" y="485" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="700" fill="#b8a632">Strategic Cost</text>
+                        <text x="575" y="505" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#6b7280">Aligns with strategy/goals</text>
+
+                        <!-- Title -->
+                        <text x="400" y="580" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="700" fill="#4a4a4a">Sales Strategy Framework: Understanding Different Selling Styles</text>
+                    </svg>
+                </div>
+
+                <p>As I proposed, my goal would be to set up 3 one-on-one meetings where we can collaboratively write a document that defines your strategy. Holding multiple meetings gives us time to reflect and think about what surfaces - which has been important in my prior experiences like this. I'll be honest and say I'm not sure how this is going to go, but I do know that I'm not going to shoehorn you into a "5 Whys" or some other magic framework. If there was a magic structure that fit your business, you would have found it already.</p>
+
+                <p>Instead, the goal is to develop custom frameworks that fit your specific situation, team, and goals. You'll have a systematic approach that survives team changes and scales with your growth - whether we decide to work together long term or not.</p>
+
+                <p>What really impressed me is that you seem to have a strong team with wide-ranging skills and an ability to get things done. The way you described how they've adapted to different projects really stood out to me. I can tell you that in talking with Trond, he seems very happy with his work with you. Trond doesn't do anything casually, so his opinion matters.</p>
+
+                <p>To give you a sense of how I think about these processes, here are some examples from Quoala's sales strategy documents. These are specific elements tied to that business and we would need to create entirely new models and mechanisms for Ladybug. I'm sharing these so you can see how specific and systematic these frameworks get.</p>
+
+                <div style="background: #f8f9fa; padding: 20px; margin: 20px 0; border-left: 4px solid #0066cc;">
+                    <h3 style="color: #0066cc; margin-top: 0;">Example: Prospecting Trees Structure</h3>
+                    <p><em>(This was built specifically for Quoala's employee engagement product - we'd create something entirely different for Ladybug)</em></p>
+                    <p><strong>The structure of sales vertical targeting and customer account growth within Quoala. Each prospecting tree consists of One Level 1 "Strategic" target supported by 3 Level 3 "Expansion" targets, and 5 Level 5 "Foothold" targets. This structure applies to industry verticals, use cases, and customer account growth.</strong></p>
+
+                    <p>With no exception, sales personnel own all leads included in an assigned prospecting tree.</p>
+
+                    <p>As a visual example, the coffee roasting vertical could have Starbucks as the Strategic Level 1 Target with key Expansion targets Pete's, Caribou, and The Coffee Bean. A Foothold in the coffee vertical would start with smaller Level 5 targets like Cafe Vita, Woods, Stumptown, Chocolati, and Intelligentsia Coffee.</p>
+
+                    <svg width="520" height="200" xmlns="http://www.w3.org/2000/svg" style="margin: 15px auto; display: block;">
+                        <!-- Strategic Level -->
+                        <rect x="220" y="10" width="100" height="30" fill="#e6f1f9" stroke="#0066cc" stroke-width="1" />
+                        <text x="270" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Starbucks</text>
+
+                        <!-- Expansion Level -->
+                        <rect x="95" y="70" width="80" height="25" fill="#f5f5f5" stroke="#666" stroke-width="1" />
+                        <text x="135" y="87" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">Pete's Coffee</text>
+
+                        <rect x="230" y="70" width="80" height="25" fill="#f5f5f5" stroke="#666" stroke-width="1" />
+                        <text x="270" y="87" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">Caribou</text>
+
+                        <rect x="365" y="70" width="80" height="25" fill="#f5f5f5" stroke="#666" stroke-width="1" />
+                        <text x="405" y="87" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">Coffee Bean</text>
+
+                        <!-- Foothold Level -->
+                        <rect x="45" y="130" width="70" height="20" fill="#fff" stroke="#999" stroke-width="1" />
+                        <text x="80" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">Cafe Vita</text>
+
+                        <rect x="135" y="130" width="70" height="20" fill="#fff" stroke="#999" stroke-width="1" />
+                        <text x="170" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">Woods</text>
+
+                        <rect x="225" y="130" width="70" height="20" fill="#fff" stroke="#999" stroke-width="1" />
+                        <text x="260" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">Stumptown</text>
+
+                        <rect x="315" y="130" width="70" height="20" fill="#fff" stroke="#999" stroke-width="1" />
+                        <text x="350" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">Chocolati</text>
+
+                        <rect x="405" y="130" width="90" height="20" fill="#fff" stroke="#999" stroke-width="1" />
+                        <text x="450" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">Intelligentsia</text>
+
+                        <!-- Connection lines -->
+                        <line x1="270" y1="40" x2="135" y2="70" stroke="#ccc" stroke-width="1" />
+                        <line x1="270" y1="40" x2="270" y2="70" stroke="#ccc" stroke-width="1" />
+                        <line x1="270" y1="40" x2="405" y2="70" stroke="#ccc" stroke-width="1" />
+
+                        <line x1="135" y1="95" x2="80" y2="130" stroke="#eee" stroke-width="1" />
+                        <line x1="135" y1="95" x2="170" y2="130" stroke="#eee" stroke-width="1" />
+                        <line x1="270" y1="95" x2="260" y2="130" stroke="#eee" stroke-width="1" />
+                        <line x1="405" y1="95" x2="350" y2="130" stroke="#eee" stroke-width="1" />
+                        <line x1="405" y1="95" x2="450" y2="130" stroke="#eee" stroke-width="1" />
+
+                        <!-- Labels -->
+                        <text x="5" y="30" font-family="Arial, sans-serif" font-size="10" fill="#666">Strategic</text>
+                        <text x="5" y="87" font-family="Arial, sans-serif" font-size="10" fill="#666">Expansion</text>
+                        <text x="5" y="143" font-family="Arial, sans-serif" font-size="10" fill="#666">Foothold</text>
+                    </svg>
+
+                    <p>Within a customer organization, prospecting trees represent account growth potential. In all cases, the strategic objective is "Company-Wide" adoption. Expansion and Foothold achievement will be measured and evaluated by individual sales teams.</p>
+                </div>
+
+                <div style="background: #f0f8f0; padding: 20px; margin: 20px 0; border-left: 4px solid #388e3c;">
+                    <h3 style="color: #388e3c; margin-top: 0;">Example: Strategic Sales Motions</h3>
+                    <p><em>(How this organization defined strategic sales motions in line with prospecting trees)</em></p>
+
+                    <p><strong>Directed Prospecting</strong> - actions taken to identify target sales that will assist in larger sales in the future. These actions include:</p>
+                    <ul>
+                        <li>Identifying strategic company purchase strategy</li>
+                        <li>Identifying optimal referral customers (People potential customers will listen to)</li>
+                        <li>Identifying complementary or rival customers (Companies that other companies will follow)</li>
+                    </ul>
+
+                    <p><strong>Referred Evaluation</strong> - actions taken to trigger a customer evaluation from an existing customer or negotiating customer. This includes referral evaluation from customer industry contacts and additional evaluation executed within large existing customers.</p>
+                    <p><em>Note: "A purchase oriented referral meeting is the gold standard for sales performance at Quoala."</em></p>
+
+                    <p><strong>Prospect Tree Revenue Growth</strong> - actions taken to increase the overall financial value of a specified prospect tree. In ideal circumstances, Foothold sales that trigger Expansion sales and eventually Strategic sales.</p>
+
+                    <p><strong>Referenceable Accounts</strong> - actions taken to publicly showcase successful customer launches, using reference customers to help demonstrate value to potential new customers.</p>
+
+                    <p>What's important here is that these aren't generic sales activities - they're specifically designed to work within the prospecting tree framework. Each motion reinforces the others and builds systematic momentum.</p>
+                </div>
+
+                <p>My goal is to work with you long term. It seems like you have a great team and I love how you describe your business. Obviously, we don't know each other well yet, so I agree that we should take this slowly. I would be willing to hold these meetings at the following rates:</p>
+
+                <ul>
+                    <li><strong>First meeting:</strong> Complimentary</li>
+                    <li><strong>Second meeting:</strong> $100/hour</li>
+                    <li><strong>Third meeting:</strong> $100/hour</li>
+                </ul>
+
+                <p>Let me know your thoughts.</p>
+
+                <p>Best,<br>Jeff</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            const correctPassword = 'PineApple'; // Change this to your preferred password
+
+            if (password === correctPassword) {
+                document.getElementById('passwordOverlay').style.display = 'none';
+                document.getElementById('mainContent').classList.remove('hidden');
+            } else {
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('passwordInput').value = '';
+            }
+        }
+
+        // Allow Enter key to submit password
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    </script>
 </body>
 </html>
